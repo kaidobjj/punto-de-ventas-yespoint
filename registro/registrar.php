@@ -3,7 +3,7 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
-// Verificar si el formulario ha sido enviado
+// Verifica si el formulario se ha enviado utilizando el método POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Recuperar los datos del formulario
@@ -33,14 +33,14 @@ var_dump('ape_pterno'.$apellido_paterno);
 var_dump('ape_materno'.$apellido_materno);
 var_dump('nombredeusuario'.$nombre_usuario);
 var_dump('contrasena'.$contrasena);
-    // Insertar datos en la base de datos (puedes agregar más lógica aquí)
+    // Insertar datos en la base de datos 
     $query = "INSERT INTO sesiones (nombre, ape_pterno, ape_materno, nombredeusuario, contrasena) 
               VALUES ('$nombre', '$apellido_paterno', '$apellido_materno', '$nombre_usuario', '$contrasena')";
 
     if ($enlace->query($query) === TRUE) {
         echo "Registro exitoso";
     } else {
-        echo "Error al registrar: " . $enlace->error;
+        echo "Error al registrar : " . $enlace->error;
     }
 
     // Cerrar la conexión
