@@ -1,16 +1,26 @@
 <?php
 require 'login.php';
-session_start();
-$usuario= $_POST['nombredeusuario'];
-$contraseña=$_POST['contraseña'];
-$q = "SELECT * FROM `sessiones` WHERE `nombredeusuario`= '$usuario' and `contraseña`='$contraseña'";
-$consulta = mysqli_query($conexion,$q);
-$array = mysqli_fetch_array($consulta);
-if(!is_null($array)){
-    $_SESSION["username"] = $usuario;
-    header("location: bienbenida.php");
-}else{
-    echo "DATOS INCORRECTOS";
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $usuario = $_POST['nombre'];
+    $contraseña = $_POST['pass'];
+    
+    $q = "SELECT * FROM `sessiones` WHERE `nombredeusuario`= '$usuario' and `contraseña`='$contraseña'";
+    $consulta = mysqli_query($conexion, $q);
+    
+    if ($consulta) {
+        $array = mysqli_fetch_array($consulta);
+
+        if (!is_null($array)) {
+           
+            
+            echo "bienvenido";
+        } else {
+    
+            echo "Datos Incorrectos";
+       }
+    } else {
+        $respuesta = array('error' => 'Error en la consulta SQL');
+        echo json_encode($respuesta);
+    }
 }
 ?>
-
