@@ -15,7 +15,7 @@ $(document).ready(function () {
             success: function (data) {
              
                 if (data == "bienvenido") {
-                    console.log('hola');
+                    
                     location.href="bienbenida.php";
                     
             } else {
