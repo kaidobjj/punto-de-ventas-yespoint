@@ -1,12 +1,14 @@
 <?php
 require 'login.php';
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $usuario = $_POST['nombre'];
-    $contraseña = $_POST['pass'];
-    
+
+    $usuario = mysqli_real_escape_string($conexion, $_POST['nombre']);
+    $contraseña= mysqli_real_escape_string($conexion, $_POST['pass']);
+      
+      
     $q = "SELECT * FROM `sessiones` WHERE `nombredeusuario`= '$usuario' and `contraseña`='$contraseña'";
     $consulta = mysqli_query($conexion, $q);
-    
+ 
     if ($consulta) {
         $array = mysqli_fetch_array($consulta);
 
@@ -20,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
        }
     } else {
         $respuesta = array('error' => 'Error en la consulta SQL');
-        echo json_encode($respuesta);
+      
     }
 }
 ?>
