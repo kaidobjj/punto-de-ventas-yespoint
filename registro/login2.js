@@ -6,18 +6,19 @@ $(document).ready(function () {
         
         $.ajax({
             type: "POST",
-            url: 'Inicio.php',
+            url: 'formulario.php',
             cache:false,
             data: {
                 nombre: nombre,
                 pass: pass
             },
-            success: function (data) {
+            success: function (data)
+            {
              
                 if (data == "bienvenido") {
                     
                     location.href="bienbenida.php";
-                    
+            
             } else {
                     alert('Datos incorrectos. Por favor, verifique su nombre de usuario y contraseña.');
                 }
