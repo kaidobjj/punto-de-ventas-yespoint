@@ -22,7 +22,7 @@ if (isset($_GET['q'])) {
         $data['id'] = $row['codproducto'];
         $data['label'] = $row['codigo'] . ' - ' .$row['descripcion'];
         $data['value'] = $row['descripcion'];
-        $data['precio'] = $row['precio'];
+        $data['precio'] = $row['precio'];  
         $data['existencia'] = $row['existencia'];
         array_push($datos, $data);
     }

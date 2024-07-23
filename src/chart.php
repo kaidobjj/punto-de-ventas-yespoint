@@ -15,7 +15,7 @@ if ($_POST['action'] == 'polarChart') {
     while ($data = mysqli_fetch_array($query)) {
         $arreglo[] = $data;
     }
-    echo json_encode($arreglo);
+    echo json_encode($arreglo); 
     die();
 }
 //

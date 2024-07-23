@@ -4,7 +4,6 @@ $host = "localhost";
 $user = "root";
 $clave = "";
 $database = "sistema";
-$table = "usuario";
 $conexion = new mysqli($host, $user, $clave, $database);
 if ($conexion->connect_errno) {
 

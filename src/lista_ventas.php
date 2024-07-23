@@ -43,5 +43,8 @@ include_once "includes/header.php";
             </table>
         </div>
     </div>
+    <div class="col-md-6">
+        <a href="excel/generar_excel.php" class="btn btn-success" > Generar Reportes</a>
+    </div>
 </div>
 <?php include_once "includes/footer.php"; ?>
